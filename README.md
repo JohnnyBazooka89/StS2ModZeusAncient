@@ -1,4 +1,4 @@
-# Dionysus Ancient
+# Zeus Ancient
 
 ## 📄 Description
 
@@ -14,11 +14,11 @@ English and Korean translations would be welcome. Translations for my other mods
 - BaseLib version 3.1.3 or newer.
 
 ## ⚙️ Installation
-1. Go to the [Releases](https://github.com/JohnnyBazooka89/StS2ModDionysusAncient/releases) page on GitHub and download the latest version.
+1. Go to the [Releases](https://github.com/JohnnyBazooka89/StS2ModZeusAncient/releases) page on GitHub and download the latest version.
 2. Extract the ZIP file.
 3. Navigate to your *Slay the Spire 2* installation folder: `{SteamLibrary}\steamapps\common\Slay The Spire 2`
 4. If the `mods` folder does not exist, create it.
-5. Move the `DionysusAncient` folder into the `mods` folder.
+5. Move the `ZeusAncient` folder into the `mods` folder.
 
 ## 🖼️ Screenshots
 
