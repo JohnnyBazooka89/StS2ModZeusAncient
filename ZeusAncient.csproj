@@ -60,7 +60,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="ZeusAncient\images\card_portraits\big\"/>
         <Folder Include="ZeusAncient\images\powers\big\"/>
         <Folder Include="ZeusAncient\images\relics\big\"/>
     </ItemGroup>
