@@ -8,7 +8,7 @@ This mod introduces a new Ancient, **Zeus** from the hit game Hades 2, who can a
 The mod is available in:
 - English
 
-English and Korean translations would be welcome. Translations for my other mods, Aphrodite, Poseidon, and Dionysus, would also be welcome.
+Chinese and Korean translations would be welcome. Translations for my other mods, Aphrodite, Poseidon, and Dionysus, would also be welcome.
 
 ## 📦 Dependencies
 - BaseLib version 3.1.3 or newer.
