@@ -1,3 +1,6 @@
 {
-  
+  "ZEUSANCIENT-ZEUS_ANCIENT.title": "Zeus",
+  "ZEUSANCIENT-ZEUS_ANCIENT.epithet": "King of the Olympians",
+  "ZEUSANCIENT-ZEUS_ANCIENT.talk.ANY.0-0r.ancient": "Reusable generic greeting.\nSecond line of greeting.",
+  "ZEUSANCIENT-ZEUS_ANCIENT.talk.firstVisitEver.0-0.ancient": "First time greeting.\nSecond line of greeting."
 }
