@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://ctrd4r1fwjxrt"
+path="res://.godot/imported/heaven_strike.png-c0721b02e1a26a5142894ad77c23a678.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/outline/heaven_strike.png"
+dest_files=["res://.godot/imported/heaven_strike.png-c0721b02e1a26a5142894ad77c23a678.ctex"]
 
 [params]
 

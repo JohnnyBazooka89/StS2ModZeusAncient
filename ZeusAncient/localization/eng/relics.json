@@ -1,3 +1,14 @@
 {
-  
+  "ZEUSANCIENT-ELECTRIC_OVERLOAD.title": "Electric Overload",
+  "ZEUSANCIENT-ELECTRIC_OVERLOAD.description": "Gain {Energy:energyIcons()} at the start of each turn. At the end of your turn, take [blue]{Damage:diff()}[/blue] damage for each unspent Energy.",
+  "ZEUSANCIENT-ELECTRIC_OVERLOAD.flavor": "",
+  "ZEUSANCIENT-HEAVEN_FLOURISH.title": "Heaven Flourish",
+  "ZEUSANCIENT-HEAVEN_FLOURISH.description": "On the first turn of each combat, your first [blue]2[/blue] Skills are played an extra time.",
+  "ZEUSANCIENT-HEAVEN_FLOURISH.flavor": "",
+  "ZEUSANCIENT-IONIC_GAIN.title": "Ionic Gain",
+  "ZEUSANCIENT-IONIC_GAIN.description": "Every [blue]2nd[/blue] turn, add {Cards} [gold]Aether Font[/gold] into your [gold]Hand[/gold].",
+  "ZEUSANCIENT-IONIC_GAIN.flavor": "",
+  "ZEUSANCIENT-STORM_RING.title": "Storm Ring",
+  "ZEUSANCIENT-STORM_RING.description": "Gain {Energy:energyIcons()} at the start of each turn. Whenever you play a card that targets an enemy, you must target that enemy until it dies.",
+  "ZEUSANCIENT-STORM_RING.flavor": ""
 }

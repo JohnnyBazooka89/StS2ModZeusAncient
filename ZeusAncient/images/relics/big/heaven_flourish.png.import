@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://c67hgeft3ncgk"
+path="res://.godot/imported/heaven_flourish.png-6b01569f7eb845147e4427cef46d992a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/big/heaven_flourish.png"
+dest_files=["res://.godot/imported/heaven_flourish.png-6b01569f7eb845147e4427cef46d992a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://b61qb34h8a8h2"
+path="res://.godot/imported/storm_ring.png-2b17b97373fd8f0f61d7e7269a8dc6a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/storm_ring.png"
+dest_files=["res://.godot/imported/storm_ring.png-2b17b97373fd8f0f61d7e7269a8dc6a9.ctex"]
 
 [params]
 

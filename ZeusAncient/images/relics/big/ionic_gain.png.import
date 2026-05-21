@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://c6dh54kj8fhx0"
+path="res://.godot/imported/ionic_gain.png-b5a072aec57501f363ffdcb7fa07c57c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/big/ionic_gain.png"
+dest_files=["res://.godot/imported/ionic_gain.png-b5a072aec57501f363ffdcb7fa07c57c.ctex"]
 
 [params]
 

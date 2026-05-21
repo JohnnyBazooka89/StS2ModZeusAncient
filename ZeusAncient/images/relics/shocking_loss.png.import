@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://igwvgp756nwe"
+path="res://.godot/imported/shocking_loss.png-8586dd25360747cac0cccded23f0d57d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/shocking_loss.png"
+dest_files=["res://.godot/imported/shocking_loss.png-8586dd25360747cac0cccded23f0d57d.ctex"]
 
 [params]
 

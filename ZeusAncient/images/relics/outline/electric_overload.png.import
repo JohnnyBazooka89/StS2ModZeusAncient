@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://saf631l4ur8g"
+path="res://.godot/imported/electric_overload.png-1bcca0d7177a3199838eaaffd14825dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/outline/electric_overload.png"
+dest_files=["res://.godot/imported/electric_overload.png-1bcca0d7177a3199838eaaffd14825dd.ctex"]
 
 [params]
 

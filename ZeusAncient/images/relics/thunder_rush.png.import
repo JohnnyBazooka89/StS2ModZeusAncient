@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dky31awpye8lf"
-path="res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"
+uid="uid://dq0ors7a3msj4"
+path="res://.godot/imported/thunder_rush.png-e9d5ce87db496366d3b4bbeec6e2a0cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZeusAncient/images/card_portraits/aether_font.png"
-dest_files=["res://.godot/imported/aether_font.png-6ad9afde82bdf23de1ba355b1a182928.ctex"]
+source_file="res://ZeusAncient/images/relics/thunder_rush.png"
+dest_files=["res://.godot/imported/thunder_rush.png-e9d5ce87db496366d3b4bbeec6e2a0cf.ctex"]
 
 [params]
 

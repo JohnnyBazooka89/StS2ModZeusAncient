@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using ZeusAncient.ZeusAncientCode.Extensions;
+using ZeusAncient.ZeusAncientCode.Relics;
 
 namespace ZeusAncient.ZeusAncientCode.Ancients;
 
@@ -20,15 +21,28 @@ public class ZeusAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> relics =
+            List<AncientOption> energyFocusedRelicsPool =
             [
-                AncientOption<Vajra>(),
-                AncientOption<OddlySmoothStone>(),
-                AncientOption<DataDisk>()
+                AncientOption<ElectricOverload>(),
+                AncientOption<HeavenFlourish>(),
+                AncientOption<IonicGain>(),
+                AncientOption<StormRing>()
+            ];
+
+            List<AncientOption> buffAttacksRelicsPool =
+            [
+                AncientOption<Vajra>()
+            ];
+
+            List<AncientOption> otherRelicsPool =
+            [
+                AncientOption<OddlySmoothStone>()
             ];
 
             return new OptionPools(
-                MakePool(relics.ToArray())
+                MakePool(energyFocusedRelicsPool.ToArray()),
+                MakePool(buffAttacksRelicsPool.ToArray()),
+                MakePool(otherRelicsPool.ToArray())
             );
         }
     }
