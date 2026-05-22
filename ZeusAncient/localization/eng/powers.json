@@ -1,3 +1,5 @@
 {
-  
+  "ZEUSANCIENT-BLITZ_POWER.title": "Blitz",
+  "ZEUSANCIENT-BLITZ_POWER.description": "After this creature takes [blue]20[/blue] more unblocked attack damage, it takes [blue]4[/blue] damage. Multiple instances of Blitz track damage separately.",
+  "ZEUSANCIENT-BLITZ_POWER.smartDescription": "After this creature takes [blue]{UnblockedDamageLeft}[/blue] more unblocked attack damage, it takes [blue]{Damage::diff()}[/blue] damage."
 }

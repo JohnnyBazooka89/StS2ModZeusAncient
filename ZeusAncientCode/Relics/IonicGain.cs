@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -30,13 +31,12 @@ public class IonicGain : ZeusAncientRelic
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(TurnsKey, 2M),
-        new EnergyVar(1),
         new CardsVar(1)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.ForEnergy(this)
+        HoverTipFactory.FromCard<AetherFont>()
     ];
 
     private bool IsActivating
@@ -62,9 +62,12 @@ public class IonicGain : ZeusAncientRelic
         }
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
+    public override async Task AfterSideTurnStart(
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        if (side != Owner.Creature.Side)
+        if (!participants.Contains(Owner.Creature))
             return;
         TurnsSeen = (TurnsSeen + 1) % DynamicVars[TurnsKey].IntValue;
         Status = TurnsSeen == DynamicVars[TurnsKey].IntValue - 1
@@ -73,8 +76,13 @@ public class IonicGain : ZeusAncientRelic
         if (TurnsSeen != 0)
             return;
         TaskHelper.RunSafely(DoActivateVisuals());
-        CardModel aetherFont = Owner.Creature.CombatState.CreateCard<AetherFont>(Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(aetherFont, PileType.Hand, Owner);
+        List<CardModel> cardsToAdd = new List<CardModel>();
+        for (int i = 0; i < DynamicVars.Cards.IntValue; i++)
+        {
+            cardsToAdd.Add(Owner.Creature.CombatState.CreateCard<AetherFont>(Owner));
+        }
+
+        await CardPileCmd.AddGeneratedCardsToCombat(cardsToAdd, PileType.Hand, Owner);
     }
 
     private async Task DoActivateVisuals()

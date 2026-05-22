@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -32,12 +33,16 @@ public class ElectricOverload : ZeusAncientRelic
         return player != Owner ? amount : amount + DynamicVars.Energy.IntValue;
     }
 
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (side != CombatSide.Player || Owner.PlayerCombatState?.Energy <= 0)
+        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState?.Energy <= 0)
             return;
         await CreatureCmd.Damage(choiceContext, Owner.Creature,
             DynamicVars.Damage.BaseValue * Owner.PlayerCombatState?.Energy ?? 0,
             ValueProp.Unpowered, Owner.Creature);
+        VfxCmd.PlayOnCreature(Owner.Creature, VfxCmd.lightningPath);
     }
 }

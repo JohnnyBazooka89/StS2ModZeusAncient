@@ -31,7 +31,10 @@ public class ZeusAncient : CustomAncientModel
 
             List<AncientOption> buffAttacksRelicsPool =
             [
-                AncientOption<Vajra>()
+                AncientOption<AirQuality>(),
+                AncientOption<DoubleStrike>(),
+                AncientOption<HeavenStrike>(),
+                AncientOption<StaticShock>()
             ];
 
             List<AncientOption> otherRelicsPool =

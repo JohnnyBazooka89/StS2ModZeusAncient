@@ -1,33 +1,76 @@
 ﻿using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Rooms;
 
 namespace ZeusAncient.ZeusAncientCode.Relics;
 
 [Pool(typeof(EventRelicPool))]
 public class HeavenFlourish : ZeusAncientRelic
 {
+    private int _charges;
+
+    private int Charges
+    {
+        get => _charges;
+        set
+        {
+            AssertMutable();
+            _charges = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
     public override RelicRarity Rarity => RelicRarity.Ancient;
+
+    public override bool ShowCounter => CombatManager.Instance.IsInProgress;
+
+    public override int DisplayAmount => Charges;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BurstPower>(2)
+        new CardsVar(2)
     ];
 
-    public override async Task AfterRoomEntered(AbstractRoom room)
+    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        if (room is not CombatRoom)
+        return !CombatManager.Instance.IsInProgress
+               || Charges <= 0
+               || card.Type != CardType.Skill
+               || card.Owner.Creature != Owner.Creature
+            ? playCount
+            : playCount + 1;
+    }
+
+    public override Task AfterModifyingCardPlayCount(CardModel card)
+    {
+        Charges--;
+        return Task.CompletedTask;
+    }
+
+    public override Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        ICombatState combatState)
+    {
+        if (player != Owner || combatState.RoundNumber != 1)
         {
-            return;
+            return Task.CompletedTask;
         }
 
-        Flash();
-        await PowerCmd.Apply<BurstPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
-            DynamicVars["BurstPower"].BaseValue, Owner.Creature, null);
+        Charges = 2;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterObtained()
+    {
+        Charges = 2;
+        return Task.CompletedTask;
     }
 }
