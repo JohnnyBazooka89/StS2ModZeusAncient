@@ -92,7 +92,7 @@ public static class ZeusAncient_AdjustLayout_Patch
         }
     }
 
-    private sealed class Box
+    private class Box
     {
         public readonly float BaseContainerWidth;
         public readonly float BaseContentX;

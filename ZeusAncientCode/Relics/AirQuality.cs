@@ -11,15 +11,14 @@ namespace ZeusAncient.ZeusAncientCode.Relics;
 [Pool(typeof(EventRelicPool))]
 public class AirQuality : ZeusAncientRelic
 {
-    private const int _damageMinimum = 10;
-    private const string _damageMinimumKey = "DamageMinimum";
-    private const string _damageThresholdKey = "DamageThreshold";
+    private const string DamageMinimumKey = "DamageMinimum";
+    private const string DamageThresholdKey = "DamageThreshold";
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(_damageMinimumKey, _damageMinimum),
-        new(_damageThresholdKey, 9M)
+        new(DamageMinimumKey, 10M),
+        new(DamageThresholdKey, 9M)
     ];
 
     public override Decimal ModifyHpLostAfterOstyLate(
@@ -31,9 +30,9 @@ public class AirQuality : ZeusAncientRelic
     {
         return (dealer != Owner.Creature && dealer != Owner.Osty) || target == Owner.Creature ||
                !props.IsPoweredAttack() || amount < 1M ||
-               amount >= DynamicVars[_damageMinimumKey].BaseValue
+               amount >= DynamicVars[DamageMinimumKey].BaseValue
             ? amount
-            : DynamicVars[_damageMinimumKey].BaseValue;
+            : DynamicVars[DamageMinimumKey].BaseValue;
     }
 
     public override Task AfterModifyingHpLostAfterOsty()

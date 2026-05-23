@@ -1,4 +1,8 @@
 {
   "ZEUSANCIENT-DOUBLE_ENCHANTMENT.description": "This card gains [gold]Replay[/gold] [blue]1[/blue].",
-  "ZEUSANCIENT-DOUBLE_ENCHANTMENT.title": "Double"
+  "ZEUSANCIENT-DOUBLE_ENCHANTMENT.title": "Double",
+  "ZEUSANCIENT-DOUBLE_ENCHANTMENT.titlePrefix": "Double ",
+  "ZEUSANCIENT-THUNDERCALL.title": "Thundercall",
+  "ZEUSANCIENT-THUNDERCALL.description": "[gold]Channel[/gold] [blue]{LightningToChannel}[/blue] [gold]Lightning[/gold].",
+  "ZEUSANCIENT-THUNDERCALL.extraCardText": "Thundercall."
 }

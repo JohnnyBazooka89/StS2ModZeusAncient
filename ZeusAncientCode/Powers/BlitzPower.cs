@@ -45,7 +45,7 @@ public class BlitzPower : ZeusAncientPower
         InvokeDisplayAmountChanged();
         if (DynamicVars[UnblockedDamageLeftKey].IntValue <= 0)
         {
-            await ZeusUtils.DealLightningDamage(choiceContext, Owner, DynamicVars.Damage.BaseValue);
+            await ZeusUtils.DealLightningDamage(choiceContext, dealer, Owner, DynamicVars.Damage.BaseValue);
             await PowerCmd.Remove(this);
         }
     }

@@ -46,11 +46,11 @@ public class StaticShock : ZeusAncientRelic
         if (otherTargets.Count >= 1)
         {
             Owner.RunState.Rng.CombatTargets.Shuffle(otherTargets);
-            await ZeusUtils.DealLightningDamage(choiceContext, otherTargets[0], finalDamage);
+            await ZeusUtils.DealLightningDamage(choiceContext, Owner.Creature, otherTargets[0], finalDamage);
         }
         else
         {
-            await ZeusUtils.DealLightningDamage(choiceContext, target, finalDamage);
+            await ZeusUtils.DealLightningDamage(choiceContext, Owner.Creature, target, finalDamage);
         }
     }
 }

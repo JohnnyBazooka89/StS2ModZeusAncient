@@ -5,18 +5,18 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace ZeusAncient.ZeusAncientCode.Enchantments;
 
-public sealed class DoubleEnchantment : ZeusEnchantment
+public class DoubleEnchantment : ZeusEnchantment
 {
-    private const string _timesKey = "Times";
+    private const string TimesKey = "Times";
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new IntVar(_timesKey, 1M)
+        new IntVar(TimesKey, 1M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.Static(StaticHoverTip.ReplayDynamic, DynamicVars[_timesKey])
+        HoverTipFactory.Static(StaticHoverTip.ReplayDynamic, DynamicVars[TimesKey])
     ];
 
     public override bool CanEnchant(CardModel c)
@@ -28,6 +28,6 @@ public sealed class DoubleEnchantment : ZeusEnchantment
 
     public override int EnchantPlayCount(int originalPlayCount)
     {
-        return originalPlayCount + DynamicVars[_timesKey].IntValue;
+        return originalPlayCount + DynamicVars[TimesKey].IntValue;
     }
 }

@@ -7,10 +7,19 @@ namespace ZeusAncient.ZeusAncientCode.Utils;
 
 public class ZeusUtils
 {
-    public static async Task DealLightningDamage(PlayerChoiceContext choiceContext, Creature owner, Decimal damage)
+    public static async Task DealLightningDamage(PlayerChoiceContext choiceContext, Creature dealer, Creature target,
+        Decimal damage)
     {
         await Cmd.Wait(0.25f);
-        await CreatureCmd.Damage(choiceContext, owner, damage, ValueProp.Unpowered, owner);
-        VfxCmd.PlayOnCreature(owner, VfxCmd.lightningPath);
+        await CreatureCmd.Damage(choiceContext, target, damage, ValueProp.Unpowered, dealer);
+        VfxCmd.PlayOnCreature(target, VfxCmd.lightningPath);
+    }
+
+    public static async Task DealLightningDamageToAll(PlayerChoiceContext choiceContext, Creature dealer,
+        IReadOnlyList<Creature> targets, Decimal damage)
+    {
+        await Cmd.Wait(0.25f);
+        await CreatureCmd.Damage(choiceContext, targets, damage, ValueProp.Unpowered, dealer);
+        VfxCmd.PlayOnCreatures(targets, VfxCmd.lightningPath);
     }
 }

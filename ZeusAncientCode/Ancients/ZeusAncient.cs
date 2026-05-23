@@ -2,6 +2,7 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
 using ZeusAncient.ZeusAncientCode.Extensions;
 using ZeusAncient.ZeusAncientCode.Relics;
@@ -39,7 +40,10 @@ public class ZeusAncient : CustomAncientModel
 
             List<AncientOption> otherRelicsPool =
             [
-                AncientOption<OddlySmoothStone>()
+                AncientOption<DivineVengeance>(),
+                AncientOption<PowerSurge>(),
+                AncientOption<ShockingLoss>(),
+                AncientOption<ThunderRush>(),
             ];
 
             return new OptionPools(
