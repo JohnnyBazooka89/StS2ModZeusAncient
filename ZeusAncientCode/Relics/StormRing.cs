@@ -1,4 +1,6 @@
 ﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -8,20 +10,21 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Rooms;
+using ZeusAncient.ZeusAncientCode.Powers;
 
 namespace ZeusAncient.ZeusAncientCode.Relics;
 
 [Pool(typeof(EventRelicPool))]
 public class StormRing : ZeusAncientRelic, IShouldPlayTargeting
 {
-    public override RelicRarity Rarity => RelicRarity.Ancient;
+    private const string ForcedTargetingCardCountKey = "ForcedTargetingCardCount";
 
-    private Creature? CreatureToTarget { get; set; }
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(1)
+        new EnergyVar(1),
+        new(ForcedTargetingCardCountKey, 2M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -31,34 +34,19 @@ public class StormRing : ZeusAncientRelic, IShouldPlayTargeting
 
     public bool ShouldPlayTargeting(CardModel card, Creature? cardTarget, AutoPlayType autoPlayType)
     {
-        if (card.Owner != Owner)
+        if (card.Owner != Owner || cardTarget == null || !IsEnemy(cardTarget))
         {
             return true;
         }
 
-        if (cardTarget == null)
+        IReadOnlyList<Creature> markedEnemies = GetMarkedEnemies();
+
+        if (markedEnemies.Count == 0 || !markedEnemies.Any(card.IsValidTarget))
         {
             return true;
         }
 
-        if (!(Owner.Creature.CombatState?.Enemies.Contains(cardTarget) ?? false))
-        {
-            return true;
-        }
-
-        Creature? lockedTarget = CreatureToTarget;
-
-        if (lockedTarget == null)
-        {
-            return true;
-        }
-
-        if (!card.IsValidTarget(lockedTarget))
-        {
-            return true;
-        }
-
-        return cardTarget == lockedTarget;
+        return markedEnemies.Contains(cardTarget);
     }
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
@@ -66,19 +54,44 @@ public class StormRing : ZeusAncientRelic, IShouldPlayTargeting
         return player != Owner ? amount : amount + DynamicVars.Energy.IntValue;
     }
 
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
-        if (cardPlay.Target != null && (Owner.Creature.CombatState?.Enemies.Contains(cardPlay.Target) ?? false))
+        if (player != Owner)
         {
-            CreatureToTarget = cardPlay.Target;
+            return;
         }
 
-        return Task.CompletedTask;
+        await MarkRandomEnemyForTurn(choiceContext);
     }
 
-    public override Task AfterCombatEnd(CombatRoom _)
+    private IReadOnlyList<Creature> GetMarkedEnemies()
     {
-        CreatureToTarget = null;
-        return Task.CompletedTask;
+        return Owner.Creature.CombatState?.HittableEnemies
+            .Where(enemy => enemy.HasPower(ModelDb.GetId<MarkedPower>()))
+            .ToList() ?? [];
+    }
+
+    private async Task MarkRandomEnemyForTurn(PlayerChoiceContext choiceContext)
+    {
+        IList<Creature> enemies = Owner.Creature.CombatState?.HittableEnemies
+            .ToList() ?? [];
+
+        if (enemies.Count <= 1)
+        {
+            return;
+        }
+
+        Owner.RunState.Rng.CombatTargets.Shuffle(enemies);
+
+        await PowerCmd.Apply<MarkedPower>(choiceContext, enemies[0], DynamicVars[ForcedTargetingCardCountKey].BaseValue,
+            Owner.Creature, null);
+    }
+
+    private bool IsEnemy(Creature creature)
+    {
+        return Owner.Creature.CombatState?.Enemies.Contains(creature) ?? false;
     }
 }

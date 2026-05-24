@@ -24,7 +24,7 @@ public class BlitzPower : ZeusAncientPower
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(UnblockedDamageLeftKey, 20M),
-        new DamageVar(4, ValueProp.Unpowered)
+        new DamageVar(5, ValueProp.Unpowered)
     ];
 
     public override async Task AfterDamageGiven(
