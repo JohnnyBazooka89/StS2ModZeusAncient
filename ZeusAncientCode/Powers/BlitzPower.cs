@@ -23,7 +23,7 @@ public class BlitzPower : ZeusAncientPower
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(UnblockedDamageLeftKey, 20M),
+        new(UnblockedDamageLeftKey, 15M),
         new DamageVar(5, ValueProp.Unpowered)
     ];
 
