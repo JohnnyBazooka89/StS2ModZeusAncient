@@ -30,7 +30,7 @@
   "ZEUSANCIENT-STATIC_SHOCK.description": "Whenever you deal unblocked attack damage to an enemy, deal [blue]{PercentDamage}%[/blue] of that damage to a different random enemy. If there are no other enemies, deal it to the original target instead.",
   "ZEUSANCIENT-STATIC_SHOCK.flavor": "\"Our enemies will soon be in for quite the shock, I think!\"",
   "ZEUSANCIENT-STORM_RING.title": "Storm Ring",
-    "ZEUSANCIENT-STORM_RING.description": "At the start of each turn, gain {Energy:energyIcons()}. Each turn, if there is more than one enemy, a random enemy is marked for that turn. Your first [blue]{ForcedTargetingCardCount}[/blue] cards that target an enemy must be played on the marked enemy.",
+  "ZEUSANCIENT-STORM_RING.description": "Gain {Energy:energyIcons()} at the start of each turn. Whenever you play a card that targets an enemy, you must target that enemy until it dies.",
   "ZEUSANCIENT-STORM_RING.flavor": "\"A storm is coming...\"",
   "ZEUSANCIENT-THUNDER_RUSH.title": "Thunder Rush",
   "ZEUSANCIENT-THUNDER_RUSH.description": "At the start of each combat, gain [blue]{Repeat}[/blue] Orb Slots. Upon pickup, enchant ALL your basic Defend cards with [purple]Thundercall[/purple].",
