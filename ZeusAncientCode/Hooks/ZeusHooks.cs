@@ -23,7 +23,7 @@ public class ZeusHooks
             if (model is not IShouldPlayTargeting shouldPlay)
                 continue;
 
-            if (shouldPlay.ShouldPlayTargeting(card, cardTarget, autoPlayType))
+            if (shouldPlay.ShouldPlayTargeting(card, cardTarget))
                 continue;
 
             preventer = model;

@@ -31,7 +31,7 @@ public class StormRing : ZeusAncientRelic, IShouldPlayTargeting
         HoverTipFactory.ForEnergy(this)
     ];
 
-    public bool ShouldPlayTargeting(CardModel card, Creature? cardTarget, AutoPlayType autoPlayType)
+    public bool ShouldPlayTargeting(CardModel card, Creature? cardTarget)
     {
         if (card.Owner != Owner)
         {
@@ -72,7 +72,7 @@ public class StormRing : ZeusAncientRelic, IShouldPlayTargeting
     {
         Creature? target = cardPlay.Target;
 
-        if (target == null)
+        if (target == null || cardPlay.IsAutoPlay)
         {
             return;
         }

@@ -6,5 +6,5 @@ namespace ZeusAncient.ZeusAncientCode;
 
 public interface IShouldPlayTargeting
 {
-    bool ShouldPlayTargeting(CardModel card, Creature? cardTarget, AutoPlayType autoPlayType);
+    bool ShouldPlayTargeting(CardModel card, Creature? cardTarget);
 }
