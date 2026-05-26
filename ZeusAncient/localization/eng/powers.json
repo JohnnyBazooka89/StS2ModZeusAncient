@@ -1,8 +1,11 @@
 {
+  "ZEUSANCIENT-BLITZ_POWER.title": "Blitz",
+  "ZEUSANCIENT-BLITZ_POWER.description": "After this creature takes [blue]15[/blue] more unblocked attack damage, it takes [blue]4[/blue] damage, and the damage of all future [gold]Blitz[/gold] triggers on this creature is increased by [blue]1[/blue]. Multiple instances of Blitz track damage separately.",
+  "ZEUSANCIENT-BLITZ_POWER.smartDescription": "After this creature takes [blue]{UnblockedDamageLeft}[/blue] more unblocked attack damage, it takes [blue]{BlitzDamage::diff()}[/blue] damage, and the damage of all future [gold]Blitz[/gold] triggers on this creature is increased by [blue]{BlitzDamageIncrease}[/blue].",
+  "ZEUSANCIENT-HEAVEN_STRUCK_POWER.title": "Heaven Struck",
+  "ZEUSANCIENT-HEAVEN_STRUCK_POWER.description": "This creature takes more damage from [gold]Blitz[/gold].",
+  "ZEUSANCIENT-HEAVEN_STRUCK_POWER.smartDescription": "This creature takes [blue]{Amount}[/blue] more damage from [gold]Blitz[/gold].",
   "ZEUSANCIENT-MARKED_BY_STORM_RING_POWER.title": "Marked by Storm Ring",
   "ZEUSANCIENT-MARKED_BY_STORM_RING_POWER.description": "You must target this creature until it dies.",
-  "ZEUSANCIENT-MARKED_BY_STORM_RING_POWER.smartDescription": "You must target this creature until it dies.",
-  "ZEUSANCIENT-BLITZ_POWER.title": "Blitz",
-  "ZEUSANCIENT-BLITZ_POWER.description": "After this creature takes [blue]15[/blue] more unblocked attack damage, it takes [blue]5[/blue] damage. Multiple instances of Blitz track damage separately.",
-  "ZEUSANCIENT-BLITZ_POWER.smartDescription": "After this creature takes [blue]{UnblockedDamageLeft}[/blue] more unblocked attack damage, it takes [blue]{Damage::diff()}[/blue] damage."
+  "ZEUSANCIENT-MARKED_BY_STORM_RING_POWER.smartDescription": "You must target this creature until it dies."
 }
