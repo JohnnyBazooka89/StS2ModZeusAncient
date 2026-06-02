@@ -1,4 +1,6 @@
-﻿using BaseLib.Cards.Variables;
+﻿using BaseLib.Abstracts;
+using BaseLib.Cards.Variables;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -10,7 +12,7 @@ using ZeusAncient.ZeusAncientCode.Utils;
 
 namespace ZeusAncient.ZeusAncientCode.Powers;
 
-public class BlitzPower : ZeusAncientPower
+public class BlitzPower : ZeusAncientPower, IHasSecondAmount
 {
     private const string UnblockedDamageLeftKey = "UnblockedDamageLeft";
     private const string BlitzDamageIncreaseKey = "BlitzDamageIncrease";
@@ -37,6 +39,11 @@ public class BlitzPower : ZeusAncientPower
             power.Owner.GetPowerAmount<HeavenStruckPower>())
     ];
 
+    public string GetSecondAmount()
+    {
+        return $"{(int)((CustomCalculatedDamageVar)DynamicVars[BlitzDamageKey]).CalculateCustom(Owner)}";
+    }
+
     public override async Task AfterDamageGiven(
         PlayerChoiceContext choiceContext,
         Creature? dealer,
@@ -59,6 +66,11 @@ public class BlitzPower : ZeusAncientPower
                 ((CustomCalculatedDamageVar)DynamicVars[BlitzDamageKey]).CalculateCustom(Owner));
             await PowerCmd.Apply<HeavenStruckPower>(choiceContext, Owner, DynamicVars[BlitzDamageIncreaseKey].IntValue,
                 dealer, null);
+            foreach (BlitzPower blitzPower in Owner.Powers.OfType<BlitzPower>())
+            {
+                blitzPower.InvokeSecondAmountChanged();
+            }
+
             await PowerCmd.Remove(this);
         }
     }
