@@ -17,8 +17,6 @@ public class BlitzPower : ZeusAncientPower, IHasSecondAmount
     private const string UnblockedDamageLeftKey = "UnblockedDamageLeft";
     private const string BlitzDamageIncreaseKey = "BlitzDamageIncrease";
     private const string BlitzDamageKey = "BlitzDamage";
-    private const string BlitzDamageBaseKey = BlitzDamageKey + "Base";
-    private const string BlitzDamageExtraKey = BlitzDamageKey + "Extra";
 
     public override PowerType Type => PowerType.Debuff;
 
@@ -32,10 +30,9 @@ public class BlitzPower : ZeusAncientPower, IHasSecondAmount
     [
         new(UnblockedDamageLeftKey, 15M),
         new(BlitzDamageIncreaseKey, 1M),
-        new(BlitzDamageBaseKey, 4M),
-        new(BlitzDamageExtraKey, 1M),
+        new(BlitzDamageKey + "Base", 4M),
+        new(BlitzDamageKey + "Extra", 1M),
         new CustomCalculatedDamageVar(BlitzDamageKey, ValueProp.Unpowered).WithMultiplier(static (power, target) =>
-            power.DynamicVars[BlitzDamageBaseKey].BaseValue + power.DynamicVars[BlitzDamageExtraKey].BaseValue *
             power.Owner.GetPowerAmount<HeavenStruckPower>())
     ];
 
