@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using ZeusAncient.ZeusAncientCode.Hooks;
 using ZeusAncient.ZeusAncientCode.Powers;
 
 namespace ZeusAncient.ZeusAncientCode.Relics;

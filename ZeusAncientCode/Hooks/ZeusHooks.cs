@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace ZeusAncient.ZeusAncientCode;
+namespace ZeusAncient.ZeusAncientCode.Hooks;
 
 public class ZeusHooks
 {
