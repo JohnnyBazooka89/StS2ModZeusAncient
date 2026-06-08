@@ -9,7 +9,7 @@ The mod is available in:
 - English
 - Korean, thanks to karyulin88
 
-Chinese translation would be welcome. Translations for my other mods, Aphrodite, Poseidon, and Dionysus, would also be welcome.
+Chinese localization would be welcome. Chinese localizations for my other Hades mods would also be welcome.
 
 ## 📦 Dependencies
 - BaseLib version 3.2.0 or newer.
